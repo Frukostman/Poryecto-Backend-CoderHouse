@@ -1,0 +1,58 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: midnightblue;
+    color: whitesmoke;
+    margin-bottom: 20px;
+    text-align: end ;
+}
+.navbar a {
+    font-family: 'Lato';
+    font-size: 25px;
+    color: whitesmoke;
+}
+
+.cantidadCart {
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    background-color: crimson;
+    background-size: 10px;
+    width: 22px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 0px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px white;
+}
+
+.header p {
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 80px;
+    margin: 0px;
+    padding: 0px;
+}
+.header p:hover {
+    color: crimson;
+    transform: scale(1.06);
+    transition: ease;
+    transition-duration: 300ms;
+    transform:rotate(0.03turn);
+}
+
+.header p i {
+    color: crimson;
+    font-size: 70px;
+    padding: 10px;
+}
+.header i:hover {
+    color: white;
+    transform: scale(1.06);
+    transition: ease-in-out;
+}

@@ -1,0 +1,10 @@
+.icono i {
+    opacity: 0.8;
+}
+.icono i:hover {
+    opacity: 1;
+    color:white;
+    transform: scale(1.06);
+    transition: ease;
+    transition-duration: 300ms;
+}

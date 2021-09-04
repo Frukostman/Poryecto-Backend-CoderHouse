@@ -1,23 +1,56 @@
-import './App.css';
-import {useEffect, useState} from 'react'
+//components
+import Navbar from './components/Navbar/Navbar';
+// import Error from './components/Error/Error';
+// import Cart from './components/Cart/Cart';
+import Footer from './components/Footer/Footer'
+
+//containers
+import Home from './containers/Home/Home';
+import AdminForm from './containers/AdminForm/AdminForm';
+// import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailContainer'
+// import Checkout from '../src/containers/Checkout/Checkout'
+
+import { BrowserRouter, Switch, Route} from 'react-router-dom'
+// import { AppProvider } from './context/useAppContext';
 
 function App() {
-
-  const [resultFetch, setResultFetch] = useState({})
-
-  useEffect(() => {
-    requestFetch();
-  }, [])
-
-  const requestFetch = async () => {
-    const response = await fetch("https://rickandmortyapi.com/api");
-    const result = await response.json();
-    setResultFetch(result)
-  }
-
   return (
-    <div className="App">
-      <p>{resultFetch.episodes}</p>
+    <div>
+      {/* <AppProvider> */}
+
+        <BrowserRouter>
+        
+            <Navbar />
+            <Switch>
+
+              {/* <Route exact path='/cart'>
+                <Cart />
+              </Route> */}
+
+              <Route exact path="/">
+                <Home />
+              </Route>
+
+              <Route exact path="/home">
+                <Home />
+              </Route>
+              
+              <Route exact path="/products">
+                <AdminForm />
+              </Route>
+
+              {/* <Route exact path='/products/:id'>
+                <ItemDetailContainer />
+              </Route> */}
+
+              {/* <Route path='/:otro?'>
+                <Error />
+              </Route> */}
+
+            </Switch>
+            <Footer />
+        </BrowserRouter>
+      {/* </AppProvider> */}
     </div>
   );
 }
