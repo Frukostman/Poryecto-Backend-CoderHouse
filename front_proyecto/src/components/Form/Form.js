@@ -1,9 +1,12 @@
+// import { Link } from 'react-router-dom';
+
 const Form = () => {
 
-    // const prevent = (e) => {
-    //   e.preventDefault()
-    //   console.log(e)
-    // }
+    const success = (e) => {
+
+      // e.preventDefault()
+      alert("producto ingresado")
+    }
   
     return (
       <div>
@@ -38,8 +41,9 @@ const Form = () => {
             <label htmlFor="code">Código: </label>
             <input className="form-control" type="number" id="code" name="code" required />
           </div>
-  
-          <button type="submit" className="btn btn-success">Enviar</button>
+            <button type="submit" className="btn btn-success" onClick={success}>Enviar</button>
+          {/* <Link to={`/home`}>
+          </Link> */}
   
         </form>
       </div>

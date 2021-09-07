@@ -1,4 +1,4 @@
-// import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 import './Item.css'
 
@@ -13,10 +13,11 @@ const Item = ({ card }) => {
                         <h4 className="card-title">{card.name}</h4>
                         <p>Origen: <b>{card.description}</b></p>
                         <p>Precio x kg: <b>{card.price}$</b></p>
+                        {/* <p>Precio x kg: <b>{card._id}$</b></p> */}
                     </div>
-                    {/* <Link to={`/detalles/${card.id}`} style={{ textDecoration: 'none' }}>
-                        <button className="btn btn-outline-success btn-block">Comprar! </button>
-                    </Link>  */}
+                    <Link to={`/products/${card._id}`} style={{ textDecoration: 'none' }}>
+                        <button className="btn btn-outline-success btn-block" >Comprar! </button>
+                    </Link> 
                 </div>
             </div>
         </>

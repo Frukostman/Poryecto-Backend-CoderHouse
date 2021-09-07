@@ -1,0 +1,15 @@
+.productoCart {
+    background-color: white;
+    padding: 0px 20px;
+    width: 100%;
+    font-size: 17px;
+}
+.productoCart i {
+    color: crimson;
+}
+#TotalCarrito {
+    text-align: right;
+}
+.botonCart {
+    width: 15vw;
+}

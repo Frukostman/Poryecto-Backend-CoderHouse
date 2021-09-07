@@ -8,7 +8,7 @@ const AdminForm = () => {
 
         <>
             <div className="container text-center m-1 px-5">
-                <h3>Igrese un producto nuevo</h3>
+                <h3>Ingrese un producto nuevo</h3>
                 <Form/>
             </div> 
         </>

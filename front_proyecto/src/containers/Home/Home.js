@@ -12,6 +12,7 @@ import {useState, useEffect} from 'react'
 
 const Home = () => {
 
+
   const [loading, setLoading] = useState(true);                   
   const [resultFetch, setResultFetch] = useState({})
 

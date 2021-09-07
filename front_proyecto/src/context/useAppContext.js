@@ -8,7 +8,7 @@ export const AppProvider = ({children}) => {
     const [carrito, setCarrito] = useState([])
 
     const addProductToCarrito = (product, cantidad) => {
-        const productInCarrito = carrito.find((p) => p.id === product.id)
+        const productInCarrito = carrito.find((p) => p._id === product._id)
         if (productInCarrito === undefined) {
           setCarrito([...carrito, { ...product, cantidad }])
         } else {
