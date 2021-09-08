@@ -34,7 +34,7 @@ const { carrito, sacarDelCarrito, sumarPrecioTotal, vaciarCarrito  } = useAppCon
                                     <button className="btn btn-danger botonCart m-2" onClick={() => vaciarCarrito()}>Vaciar Carrito</button>
                                     <Link to={`/checkout`}>
                                         <button className="btn btn-success botonCart m-2">Comprar</button>
-                                    </Link>
+                                    </Link> 
                                     <br/>
                                 </div>
                             </div> 

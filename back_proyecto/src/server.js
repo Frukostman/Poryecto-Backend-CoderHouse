@@ -5,6 +5,7 @@ const cors = require('cors')
 
 //rutas
 const productsRouter = require('./routes/products');
+const cartRouter = require('./routes/cart');
 
 //coneccion a mongo
 require('./database/connection');
@@ -16,6 +17,7 @@ app.use(compression())
 app.use(cors())
 
 app.use('/api', productsRouter);
+app.use('/api', cartRouter);
 
 module.exports = app;
 

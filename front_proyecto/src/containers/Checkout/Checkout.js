@@ -1,99 +1,46 @@
 // import Thanks from '../../components/Thanks/Thanks'
 
 import useAppContext from '../../context/useAppContext';
-// import { getFirestore } from '../../firebase/index';
-import  {useState} from 'react'
-// import swal from 'sweetalert';
 
-// import './Checkout.css'
+import  {useState} from 'react'
+
+
+import './Checkout.css'
 
 
 const Checkout = () => {
 
 const { carrito, sumarPrecioTotal, vaciarCarrito } = useAppContext()
-const [datos, setDatos] = useState({
-    timestamp: Date.now,
-    products: carrito
-})
 
-const confirmarCompra = () => {
-    setDatos(carrito)
-    vaciarCarrito()
-    console.log(datos)
-}
+const cart = JSON.stringify(carrito)
+console.log(cart)
+console.log(carrito)
 
+// const [datos, setDatos] = useState()
 
-// const [orderId, setOrderId] = useState()
-// const [listo, setListo] = useState(false)
-// const [datos, setDatos] = useState({
-//     nombre: '',
-//     apellido: '',
-//     telefono: '',
-//     email1: '',
-//     email2: ''
-// })
+// let dato = {name: "productito"}
 
-// //Conectamos con Firebase y vamos a la coleccion de compras realizadas
-// const db = getFirestore()
-// const orders =  db.collection("orders") 
+// const enviarDB = async () => {
 
-// //Funcion que envia la compra a Firebase
-// const guardarEnFB = () => {  
+//     // setDatos()
+//     console.log(carrito)
+//     // vaciarCarrito()
+
+//     let dato = JSON.stringify(carrito)
     
-//     //Calcula el valor total
-//     let PrecioTotal = sumarPrecioTotal(carrito);
-    
-//     //formato de nueva orden
-//     const newOrder = {
-        
-//         buyerName: datos.nombre,
-//         buyerSurname: datos.apellido,
-//         buyerPhone: datos.telefono,
-//         buyerMail: datos.email1,
-        
-//         items: carrito,
-//         date: new Date(),
-//         totalPrice: PrecioTotal,
-//     } 
-//     //se guarda la compra a firebase
-//     orders.add(newOrder).then(({ id }) => {
-//         swal(`Tu comprobante es el N°:${id}, anotalo y no lo pierdas!`)
-//         setOrderId(id)
-//     }).catch(err => {
-//         console.log(err)
-//     })
-//     .finally((e) => {
-//         console.log(e + orderId)
-//     }) 
-// }
-
-// //Funcion que modifica el comprador
-// const guardarDatos = (event) => {
-//     setDatos({
-//         ...datos,
-//         [event.target.name] : event.target.value
-//     })
-// }    
-
-// //Funcion que chequea el formulario
-// const check = (e) => {
-//     e.preventDefault()
-    
-//     if (datos.nombre === "" || datos.apellido === "" || datos.telefono === "" || datos.email1 === "" || datos.email2 === "") {
-//         swal("Por favor completá todos los campos solicitados.")
+//     try {     
+//         const response = await fetch('http://localhost:8000/api/cart', {
+//             method: 'post',
+//             body: dato
+//         });
+//         console.log('Completed!', response);
+//     } catch(err) { 
+//         console.error(`Error: ${err}`);
 //     }
-//     else if (datos.email1 !== datos.email2) {
-//         swal("Por favor verificá que las direcciones de mail sean iguales.")
-//     } 
-//     else {
-//         guardarEnFB()
-//         vaciarCarrito()
-//         setListo(true)          
-//     } 
-// }
-
-
     
+//     vaciarCarrito()
+// }
+   
  return (
         <>         
             <div className="container checkout text-center">
@@ -102,7 +49,14 @@ const confirmarCompra = () => {
                     <p className=" display-4"> {sumarPrecioTotal(carrito)} <span className="text-muted">$</span></p>
                     <hr/>
 
-                    <button onClick={confirmarCompra} className="btn btn-success btn-block mt-3">Finalizar compra.</button>
+                    <form action="http://localhost:8000/api/cart" method="POST">
+                        <button type="submit" name="products" value={carrito} className="btn btn-success btn-block mt-3">Finalizar compra.</button>
+                    </form>
+
+                    {/* <button onClick={enviarDB} className="btn btn-success btn-block mt-3">Finalizar compra.</button> */}
+                    
+                    {/* <button onClick={newOrder} className="btn btn-success btn-block mt-3">ver compra.</button> */}
+
                 </div> 
             
         </>
