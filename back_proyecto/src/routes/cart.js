@@ -24,14 +24,14 @@ router.get('/cart/:id', async (req, res) => {
 
 router.post('/cart', adminVal,async (req, res) => {
     try {
-        // let datito = JSON.stringify(req.body)
-        // console.log("aver"+datito)
         let result = await controller.create(req.body);
-        // console.log(result)
+        
         return res.json(result);
+
     } catch (error) {
         return res.status(500).send({ error: error.message });
     }
+        
 });
 
 router.put('/cart/:id', adminVal, async (req, res) => {

@@ -12,34 +12,36 @@ const Checkout = () => {
 
 const { carrito, sumarPrecioTotal, vaciarCarrito } = useAppContext()
 
-const cart = JSON.stringify(carrito)
-console.log(cart)
-console.log(carrito)
+let PrecioTotal = sumarPrecioTotal(carrito);
 
 // const [datos, setDatos] = useState()
 
-// let dato = {name: "productito"}
+const newOrder = {
+products: carrito,
+total: PrecioTotal
+}
 
-// const enviarDB = async () => {
+
+const enviarDB = async () => {
 
 //     // setDatos()
-//     console.log(carrito)
-//     // vaciarCarrito()
 
-//     let dato = JSON.stringify(carrito)
+   
+    try {     
+        const response = await fetch('http://localhost:8000/api/cart', {
+            method: 'POST',
+            body: JSON.stringify(newOrder), // data can be `string` or {object}!
+            headers:{
+                        'Content-Type': 'application/json'
+                    }
+        });
+        console.log('Completed!', response);
+    } catch(err) { 
+        console.error(`Error: ${err}`);
+    }
     
-//     try {     
-//         const response = await fetch('http://localhost:8000/api/cart', {
-//             method: 'post',
-//             body: dato
-//         });
-//         console.log('Completed!', response);
-//     } catch(err) { 
-//         console.error(`Error: ${err}`);
-//     }
-    
-//     vaciarCarrito()
-// }
+    vaciarCarrito()
+}
    
  return (
         <>         
@@ -49,11 +51,11 @@ console.log(carrito)
                     <p className=" display-4"> {sumarPrecioTotal(carrito)} <span className="text-muted">$</span></p>
                     <hr/>
 
-                    <form action="http://localhost:8000/api/cart" method="POST">
+                    {/* <form action="http://localhost:8000/api/cart" method="POST">
                         <button type="submit" name="products" value={carrito} className="btn btn-success btn-block mt-3">Finalizar compra.</button>
-                    </form>
+                    </form> */}
 
-                    {/* <button onClick={enviarDB} className="btn btn-success btn-block mt-3">Finalizar compra.</button> */}
+                    <button onClick={enviarDB} className="btn btn-success btn-block mt-3">Finalizar compra.</button>
                     
                     {/* <button onClick={newOrder} className="btn btn-success btn-block mt-3">ver compra.</button> */}
 

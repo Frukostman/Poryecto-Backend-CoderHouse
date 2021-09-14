@@ -10,9 +10,6 @@ class CartController {
     async findById(id) {
         return await Cart.findById(id);
     }
-    async findById(id) {
-        return await Cart.findById(id);
-    }
     async create(data) {
         return await Cart.create(data);
     }

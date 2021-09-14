@@ -12,7 +12,6 @@ import {useState, useEffect} from 'react'
 
 const Home = () => {
 
-
   const [loading, setLoading] = useState(true);                   
   const [resultFetch, setResultFetch] = useState({})
 
@@ -32,13 +31,11 @@ return (
 
     <>
         <div className="container-fluid text-center m-1">
-          <div className="btn-group">
-          
+          <div className="btn-group">      
             {loading? 
             <Loading/>:
             <ItemList items={resultFetch}/>
             }
-
           </div>
         </div> 
     </>

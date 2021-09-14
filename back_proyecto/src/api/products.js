@@ -10,9 +10,6 @@ class ProductController {
     async findById(id) {
         return await Product.findById(id);
     }
-    async findById(id) {
-        return await Product.findById(id);
-    }
     async create(data) {
         return await Product.create(data);
     }
